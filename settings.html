@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - LifeOS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h3>🎯 LifeOS</h3>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="lifeos.html">Home</a></li>
+                <li><a href="history.html">History</a></li>
+                <li><a href="settings.html" class="active">Settings</a></li>
+                <li><a href="author.html">About</a></li>
+                <li><a href="index.html" onclick="logout(event)" class="logout-link">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-page">
+        <div class="container">
+            <!-- Header -->
+            <div class="app-header">
+                <div class="header-content">
+                    <h1>⚙️ Settings</h1>
+                    <p class="user-info">Customize your LifeOS experience</p>
+                </div>
+            </div>
+
+            <!-- Profile Section -->
+            <section class="section">
+                <h2>👤 Profile</h2>
+                <div class="settings-group">
+                    <label for="settingName">Name:</label>
+                    <input type="text" id="settingName" class="form-input">
+                </div>
+                <div class="settings-group">
+                    <label for="settingAge">Age:</label>
+                    <input type="number" id="settingAge" class="form-input" min="13" max="120">
+                </div>
+                <div class="settings-group">
+                    <label>Default Mood:</label>
+                    <div class="mood-selector">
+                        <label class="mood-option">
+                            <input type="radio" name="settingMood" value="happy">
+                            <span class="mood-icon">😊</span>
+                            <span class="mood-label">Happy</span>
+                        </label>
+                        <label class="mood-option">
+                            <input type="radio" name="settingMood" value="stressed">
+                            <span class="mood-icon">😰</span>
+                            <span class="mood-label">Stressed</span>
+                        </label>
+                        <label class="mood-option">
+                            <input type="radio" name="settingMood" value="motivated">
+                            <span class="mood-icon">🔥</span>
+                            <span class="mood-label">Motivated</span>
+                        </label>
+                        <label class="mood-option">
+                            <input type="radio" name="settingMood" value="tired">
+                            <span class="mood-icon">😴</span>
+                            <span class="mood-label">Tired</span>
+                        </label>
+                    </div>
+                </div>
+                <button class="btn btn-primary" onclick="saveProfileSettings()">💾 Save Profile</button>
+            </section>
+
+            <!-- Display Section -->
+            <section class="section">
+                <h2>🎨 Display</h2>
+                <div class="settings-group">
+                    <label for="darkModeToggle">
+                        <input type="checkbox" id="darkModeToggle">
+                        Dark Mode
+                    </label>
+                </div>
+            </section>
+
+            <!-- Notifications Section -->
+            <section class="section">
+                <h2>🔔 Notifications</h2>
+                <div class="settings-group">
+                    <label for="scheduleReminders">
+                        <input type="checkbox" id="scheduleReminders" checked>
+                        Schedule Reminders
+                    </label>
+                </div>
+                <div class="settings-group">
+                    <label for="timerAlerts">
+                        <input type="checkbox" id="timerAlerts" checked>
+                        Timer Alerts
+                    </label>
+                </div>
+                <p class="setting-description">Get notifications when your schedule starts and when timers end.</p>
+                <button class="btn btn-primary" onclick="saveNotificationSettings()">💾 Save Preferences</button>
+            </section>
+
+            <!-- Data Section -->
+            <section class="section">
+                <h2>💾 Data & Privacy</h2>
+                <div class="data-section">
+                    <h3>Your Data</h3>
+                    <p>All your schedules and settings are stored locally on your device. Here's how much space you're using:</p>
+                    <div id="storageInfo" class="storage-info"></div>
+                    <div class="data-actions">
+                        <button class="btn btn-secondary" onclick="exportAllData()">📥 Export All Data</button>
+                        <button class="btn btn-warning" onclick="clearAllData()">🗑️ Clear Cache</button>
+                        <button class="btn btn-danger" onclick="deleteAccount()">⚠️ Delete Account</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- About LifeOS -->
+            <section class="section">
+                <h2>ℹ️ About LifeOS</h2>
+                <div class="about-section">
+                    <h3>Version</h3>
+                    <p>LifeOS v1.0.0 (January 2026)</p>
+                    
+                    <h3>Features</h3>
+                    <ul class="features-list">
+                        <li>✅ AI-powered schedule generation with natural language parsing</li>
+                        <li>✅ Smart break suggestions based on mood and age</li>
+                        <li>✅ Productivity timer with Pomodoro technique</li>
+                        <li>✅ Gamification with points and streaks</li>
+                        <li>✅ Schedule history and analytics</li>
+                        <li>✅ Export to JSON, CSV, and PDF</li>
+                        <li>✅ 100% offline - no data collection</li>
+                    </ul>
+                    
+                    <h3>Roadmap</h3>
+                    <ul class="features-list">
+                        <li>🔮 Calendar integration</li>
+                        <li>🔮 Mobile app with push notifications</li>
+                        <li>🔮 Advanced AI with machine learning</li>
+                        <li>🔮 Collaboration and team schedules</li>
+                        <li>🔮 Voice command input</li>
+                    </ul>
+                    
+                    <h3>Credits</h3>
+                    <p>Created by <a href="https://github.com/Benthbrains" target="_blank">Benjamin</a></p>
+                    <p>Follow on <a href="https://www.youtube.com/@Historicaltimemachine-i6c" target="_blank">YouTube</a></p>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="footer">
+                <p>&copy; 2026 LifeOS • Created by <a href="https://github.com/Benthbrains" target="_blank">Benjamin</a></p>
+            </footer>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Load settings on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            loadSettings();
+            updateStorageInfo();
+        });
+    </script>
+</body>
+</html>

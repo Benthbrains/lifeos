@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule Details - LifeOS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h3>🎯 LifeOS</h3>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="lifeos.html">Home</a></li>
+                <li><a href="history.html">History</a></li>
+                <li><a href="settings.html">Settings</a></li>
+                <li><a href="author.html">About</a></li>
+                <li><a href="index.html" onclick="logout(event)" class="logout-link">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-page">
+        <div class="container">
+            <!-- Header -->
+            <div class="app-header">
+                <div class="header-content">
+                    <h1>Schedule Details</h1>
+                    <p class="user-info" id="scheduleDate">Date: Loading...</p>
+                </div>
+            </div>
+
+            <!-- Schedule Content -->
+            <section class="section schedule-detail-section">
+                <div id="scheduleDetailContent"></div>
+            </section>
+
+            <!-- Actions -->
+            <section class="section actions-section">
+                <div class="action-buttons">
+                    <button class="btn btn-primary" onclick="regenerateSchedule()">🔄 Regenerate</button>
+                    <button class="btn btn-secondary" onclick="copyToClipboard()">📋 Copy Text</button>
+                    <button class="btn btn-secondary" onclick="downloadAsJSON()">💾 Download JSON</button>
+                    <button class="btn btn-secondary" onclick="window.print()">🖨️ Print/PDF</button>
+                    <button class="btn btn-secondary" onclick="shareSchedule()">🔗 Share</button>
+                </div>
+            </section>
+
+            <!-- Feedback -->
+            <section class="section feedback-section">
+                <h2>Was this schedule helpful?</h2>
+                <div class="feedback-buttons">
+                    <button class="btn btn-success" onclick="submitFeedback('yes')">👍 Yes, very helpful!</button>
+                    <button class="btn btn-neutral" onclick="submitFeedback('partial')">😐 Somewhat helpful</button>
+                    <button class="btn btn-danger" onclick="submitFeedback('no')">👎 Not helpful</button>
+                </div>
+                <p id="feedbackMessage" class="feedback-message hidden"></p>
+            </section>
+
+            <!-- Footer -->
+            <footer class="footer">
+                <p>&copy; 2026 LifeOS • Created by <a href="https://github.com/Benthbrains" target="_blank">Benjamin</a></p>
+            </footer>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Load schedule details
+        document.addEventListener('DOMContentLoaded', function() {
+            loadScheduleDetail();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LifeOS - Daily Planner & Timer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <h3>✨ LifeOS</h3>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="lifeos.html" class="active">Home</a></li>
+        <li><a href="author.html">About Author</a></li>
+        <li><span class="nav-stats">🔥 Streak: <strong id="streakCounter">0</strong> | ⭐ Points: <strong id="pointsCounter">0</strong></span></li>
+        <li><a id="logoutLink" href="index.html" onclick="logout(event)" class="logout-link">Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ========================================
+       MAIN APP PAGE
+       ======================================== -->
+  <div class="main-page">
+    <div class="container">
+      <!-- Header with User Greeting -->
+      <div class="app-header">
+        <div class="header-content">
+          <h1 id="greetingMessage">Welcome!</h1>
+          <p class="user-info">Age <span id="userAge"></span> • Mood: <span id="userMood"></span></p>
+        </div>
+      </div>
+
+      <!-- Daily Planner Section -->
+      <section class="section planner-section">
+        <h2>📋 Daily Goals</h2>
+        <p class="section-subtitle">What do you want to accomplish today?</p>
+
+        <textarea 
+          id="userInput" 
+          class="textarea" 
+          placeholder="Share your goals, tasks, or how you're feeling today..."
+          maxlength="500"
+        ></textarea>
+
+        <div class="char-counter">
+          <span id="charCount">0</span>/500
+        </div>
+
+        <button id="generateBtn" class="btn btn-primary btn-large">✨ Generate My Schedule</button>
+      </section>
+
+      <!-- Daily Plan Output -->
+      <div id="planOutput" class="plan-output hidden">
+        <h2>Your 5-Step Daily Plan</h2>
+        <p id="planPersonalization" class="plan-subtitle"></p>
+        <ul id="planList" class="plan-list"></ul>
+        <button id="regenerateBtn" class="btn btn-secondary">🔄 Generate Another Plan</button>
+      </div>
+
+      <!-- Timer/Alarm Section -->
+      <section class="section timer-section">
+        <h2>⏱️ Productivity Timer</h2>
+        <p class="section-subtitle">Set a timer for focused work sessions</p>
+
+        <div class="timer-controls">
+          <div class="timer-input-group">
+            <label for="timerMinutes">Minutes:</label>
+            <input 
+              type="number" 
+              id="timerMinutes" 
+              class="timer-input" 
+              min="1" 
+              max="120" 
+              value="25"
+            >
+          </div>
+
+          <div class="timer-input-group">
+            <label for="timerSeconds">Seconds:</label>
+            <input 
+              type="number" 
+              id="timerSeconds" 
+              class="timer-input" 
+              min="0" 
+              max="59" 
+              value="0"
+            >
+          </div>
+        </div>
+
+        <div class="timer-display" id="timerDisplay">
+          <span id="timerTime">25:00</span>
+        </div>
+
+        <div class="timer-buttons">
+          <button id="startBtn" class="btn btn-primary">▶️ Start Timer</button>
+          <button id="pauseBtn" class="btn btn-secondary hidden">⏸️ Pause</button>
+          <button id="resumeBtn" class="btn btn-secondary hidden">▶️ Resume</button>
+          <button id="resetBtn" class="btn btn-secondary">🔄 Reset</button>
+        </div>
+
+        <p class="timer-info">💡 Try the Pomodoro technique: 25 min work, 5 min break</p>
+      </section>
+
+      <!-- Gamification Stats -->
+      <section class="section stats-section">
+        <h2>🎮 Your Progress</h2>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon">🔥</div>
+            <div class="stat-content">
+              <p class="stat-label">Current Streak</p>
+              <p class="stat-value" id="streakDisplay">0</p>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">⭐</div>
+            <div class="stat-content">
+              <p class="stat-label">Total Points</p>
+              <p class="stat-value" id="pointsDisplay">0</p>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">✅</div>
+            <div class="stat-content">
+              <p class="stat-label">Tasks Completed</p>
+              <p class="stat-value" id="tasksDisplay">0</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <p>&copy; 2026 LifeOS • Created by <a href="https://github.com/Benthbrains" target="_blank">Benjamin</a></p>
+        <p><a href="https://www.youtube.com/@Historicaltimemachine-i6c" target="_blank">Subscribe on YouTube</a></p>
+      </footer>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

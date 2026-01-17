@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LifeOS - AI Schedule Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="login-page">
+    <div class="container">
+        <div class="login-container">
+            <div class="login-header">
+                <h1>🎯 LifeOS</h1>
+                <p>Your AI-Powered Daily Schedule Assistant</p>
+            </div>
+
+            <form id="loginForm" class="login-form">
+                <div class="form-group">
+                    <label for="userName">What's your name?</label>
+                    <input 
+                        type="text" 
+                        id="userName" 
+                        name="userName" 
+                        placeholder="Enter your name" 
+                        required
+                        minlength="2"
+                        maxlength="50"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="userAge">Your age</label>
+                    <input 
+                        type="number" 
+                        id="userAge" 
+                        name="userAge" 
+                        placeholder="13-120" 
+                        required
+                        min="13"
+                        max="120"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label>How are you feeling today?</label>
+                    <div class="mood-selector">
+                        <label class="mood-option">
+                            <input type="radio" name="userMood" value="happy" checked>
+                            <span class="mood-icon">😊</span>
+                            <span class="mood-label">Happy</span>
+                        </label>
+                        <label class="mood-option">
+                            <input type="radio" name="userMood" value="stressed">
+                            <span class="mood-icon">😰</span>
+                            <span class="mood-label">Stressed</span>
+                        </label>
+                        <label class="mood-option">
+                            <input type="radio" name="userMood" value="motivated">
+                            <span class="mood-icon">🔥</span>
+                            <span class="mood-label">Motivated</span>
+                        </label>
+                        <label class="mood-option">
+                            <input type="radio" name="userMood" value="tired">
+                            <span class="mood-icon">😴</span>
+                            <span class="mood-label">Tired</span>
+                        </label>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-large">
+                    Start Your Day with AI 🚀
+                </button>
+            </form>
+
+            <div class="login-footer">
+                <p>Your schedules are saved privately on your device. No data is shared.</p>
+                <div class="social-links">
+                    <a href="author.html" class="link">About the Creator</a>
+                    <a href="https://www.youtube.com/@Historicaltimemachine-i6c" target="_blank" class="link">YouTube</a>
+                    <a href="https://github.com/Benthbrains" target="_blank" class="link">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Welcome Popup -->
+    <div id="welcomePopup" class="modal hidden">
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <h2>Welcome to LifeOS! 👋</h2>
+            <p>Your AI schedule assistant is ready to help you organize your day perfectly.</p>
+            <div class="welcome-features">
+                <div class="feature-item">
+                    <span class="feature-icon">🤖</span>
+                    <span>AI-powered schedule generation</span>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">⏱️</span>
+                    <span>Smart break suggestions</span>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">📱</span>
+                    <span>Works offline & saves locally</span>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">🎯</span>
+                    <span>Personalized by mood & age</span>
+                </div>
+            </div>
+            <button class="btn btn-primary" onclick="closeWelcomePopup()">Let's Get Started</button>
+        </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

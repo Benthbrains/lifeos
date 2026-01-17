@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule History - LifeOS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h3>🎯 LifeOS</h3>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="lifeos.html">Home</a></li>
+                <li><a href="history.html" class="active">History</a></li>
+                <li><a href="settings.html">Settings</a></li>
+                <li><a href="author.html">About</a></li>
+                <li><a href="index.html" onclick="logout(event)" class="logout-link">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-page">
+        <div class="container">
+            <!-- Header -->
+            <div class="app-header">
+                <div class="header-content">
+                    <h1>📚 Schedule History</h1>
+                    <p class="user-info">View all your generated schedules</p>
+                </div>
+            </div>
+
+            <!-- Search/Filter -->
+            <section class="section">
+                <div class="search-controls">
+                    <input 
+                        type="text" 
+                        id="searchInput" 
+                        class="search-input" 
+                        placeholder="Search schedules..."
+                    >
+                    <select id="sortBy" class="sort-select">
+                        <option value="newest">Newest First</option>
+                        <option value="oldest">Oldest First</option>
+                    </select>
+                </div>
+            </section>
+
+            <!-- History List -->
+            <section class="section">
+                <div id="historyContainer"></div>
+                <div id="emptyMessage" class="empty-message hidden">
+                    <p>📭 No schedules yet. <a href="lifeos.html">Create your first schedule!</a></p>
+                </div>
+            </section>
+
+            <!-- Stats -->
+            <section class="section stats-section">
+                <h2>📊 Statistics</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">📅</div>
+                        <div class="stat-content">
+                            <p class="stat-label">Total Schedules</p>
+                            <p class="stat-value" id="totalSchedules">0</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">⭐</div>
+                        <div class="stat-content">
+                            <p class="stat-label">Success Rate</p>
+                            <p class="stat-value" id="successRate">0%</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🎯</div>
+                        <div class="stat-content">
+                            <p class="stat-label">Avg Tasks</p>
+                            <p class="stat-value" id="avgTasks">0</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Export All -->
+            <section class="section action-section">
+                <h2>Export & Data</h2>
+                <div class="action-buttons">
+                    <button class="btn btn-primary" onclick="exportAllAsCSV()">📊 Export as CSV</button>
+                    <button class="btn btn-secondary" onclick="exportAllAsJSON()">💾 Export as JSON</button>
+                    <button class="btn btn-danger" onclick="deleteAllSchedules()">🗑️ Delete All</button>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="footer">
+                <p>&copy; 2026 LifeOS • Created by <a href="https://github.com/Benthbrains" target="_blank">Benjamin</a></p>
+            </footer>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Load history on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            loadScheduleHistory();
+            setupHistorySearch();
+        });
+    </script>
+</body>
+</html>
